@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gunicorn = "*"
+jinja2 = "*"
+authlib = ">=1.0"
+requests = ">=2.27.1"
+python-dotenv = ">=0.19.2"
+flask = "*"
+recipe-scrapers = "*"
+ingredient-parser-nlp = "*"
+psycopg2 = "*"
+colorama = "*"
+nltk = "*"
+pint = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

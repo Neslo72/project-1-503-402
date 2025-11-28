@@ -1,0 +1,6 @@
+.env
+.idea/
+.DS_Store
+ffdata.json
+__pycache__
+food_category.csv

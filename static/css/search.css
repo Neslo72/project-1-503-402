@@ -1,0 +1,128 @@
+body {
+  background-color: #F0F0F0;
+  color: #3C4A3C;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px); 
+}
+
+
+.search-container {
+  background-color: #D9E9CF;
+  padding: 3rem 4rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(60, 74, 60, 0.12);
+  text-align: center;
+  box-sizing: border-box;
+  /* width: 100%; */
+  max-width: 500px;
+  margin: 1.5rem 1.5rem;
+}
+
+
+.search-container h1 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3C4A3C;
+}
+
+/* === Input Field === */
+.main-search-input {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: 2px solid #96A78D;
+  border-radius: 50px;
+  background-color: #F0F0F0;
+  color: #3C4A3C;
+}
+
+.main-search-input:focus {
+  border-color: #B6CEB4;
+  box-shadow: 0 0 8px rgba(150, 167, 141, 0.3);
+}
+
+
+.pure-button-primary {
+  background-color: #96A78D;
+  color: #F0F0F0;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+
+}
+
+
+.tag-heading {
+  text-align: left;
+  color: #3C4A3C;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.tag-btn {
+  border: 2px solid #3C4A3C;
+  background-color: #F0F0F0;
+  color: #3C4A3C;
+  border-radius: 25px;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tag-btn:hover {
+  background-color: #D9E9CF;
+}
+
+.tag-btn.active {
+  background-color: #96A78D;
+  color: #F0F0F0;
+  border-color: #96A78D;
+}
+.search-results-wrapper {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center;    /* center the whole block horizontally */
+  gap: 1.5rem;            /* space between heading and results */
+  margin-top: 2rem;
+}
+
+.search-results-wrapper h1 {
+  align-self: flex-start; /* keep heading aligned to the left edge */
+  margin-left: 4rem;      /* or adjust to match your site layout */
+  font-size: 1.8rem;
+  color: #2f3d2c;
+}
+
+.search-results {
+  background-color: #D9E9CF;
+  padding: 3rem 4rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(60, 74, 60, 0.12);
+  text-align: center;
+  box-sizing: border-box;
+  width: 70%;
+  /* max-width: 500px; */
+  margin: 1.5rem 1.5rem;
+}

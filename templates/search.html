@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="search-results-wrapper">
+  <div class="search-results-nav">
+    <a href="{{ url_for('home') }}">← Back to Home</a>
+  </div>
+  {% if results %}
+    <div class="search-results-header">
+      <h1>Search Results for “{{ query or selected_tag }}”</h1>
+    </div>
+    <div class="results-container">
+      {% from "recipe-macros.html" import recipeCard %}
+      <div class="recipe-row">
+        <div class="recipe-cards">
+          {% for recipe in results %}
+            {{ recipeCard(recipe) }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="search-results-header">
+      <h1>No results found for “{{ query or selected_tag }}”.</h1>
+    </div>
+  {% endif %}
+  <section class="explore-more">
+    <h2>Explore More Recipes</h2>
+    <div class="recipe-row">
+        <div class="recipe-cards">
+        {% from "recipe-macros.html" import recipeCard %}
+        {% for recipe in explore_recipes %}
+            {{ recipeCard(recipe) }}
+        {% endfor %}
+        </div>
+    </div>
+  </section>
+</div>
+{%endblock content%}

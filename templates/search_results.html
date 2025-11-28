@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}" />
+{% endblock styles %}
+{% block content %}
+<div class="search-results-wrapper">
+    {% if results %}
+        <h1>Search Results for "{{ query }}"</h1>
+        <div class="search-results">
+            {% from "recipe-macros.html" import recipeCard %}
+            <div class="recipe-row">
+                <div class="recipe-cards">
+                    {% for recipe in results %}
+                        {{ recipeCard(recipe) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1>No Results for "{{ query  }}"</h1>
+    {% endif %}
+</div> 
+{%endblock content%}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>{% block title %}Home{% endblock %}</title>
+      <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+         integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+         crossorigin="anonymous"
+         />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" />
+      {% block styles %}{% endblock styles %}
+      {% block scripts %}{% endblock scripts %}
+      <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+   </head>
+   <body data-user-id="{{ session.get('userID', 0) }}" data-is-admin="{{ 'true' if session.get('is_admin') else 'false' }}">
+      <header id="posted-header">
+         <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">Joe Mama Eats</a>
+            <form class="nav-search-form" method="GET" action="{{ url_for('search') }}">
+               <input class="nav-search-input" type="text" name="q" placeholder="Search recipes..." value="{{ request.args.get('q', '') }}" required>
+            </form>
+            <ul class="nav-links">
+               {% if user %}
+               <li class="nav-links-item {% if request.endpoint == 'recipeEdit' %}active{% endif %}"><a href="{{ url_for('recipeEdit') }}">New Post</a></li>
+               <li class="nav-links-item {% if request.endpoint == 'profile' %}active{% endif %}"><a href="{{ url_for('profile') }}">Profile</a></li>
+               {% else %}
+               <li class="nav-links-item {% if request.endpoint == 'login' %}active{% endif %}"><a href="{{ url_for('login') }}">Login</a></li>
+               {% endif %}
+            </ul>
+         </div>
+      </header>
+      {% block content %}
+      <div>
+         {% from "recipe-macros.html" import recipeCard %}
+         <section class="site-intro">
+            <h1>Joe-Mama Recipes</h1>
+            <p>A community where joe-mama even eats.</p>
+            <div class="tag-browse">
+               {% for tag in tags %}
+                  <form method="POST" action="{{ url_for('search') }}" style="display:inline;">
+                     <input type="hidden" name="tags" value="{{ tag }}">
+                     <button type="submit" class="tag-btn">{{ tag }}</button>
+                  </form>
+               {% endfor %}
+            </div>
+         </section>
+         <section class="main-sections">
+            <h2 class="title">Trending Recipes</h2>
+            <div class="recipe-row">
+               <div class="recipe-cards">
+                  {% for recipe in recipes["trending"] %}
+                  {{ recipeCard(recipe) }}
+                  {% endfor %}
+               </div>
+            </div>
+         </section>
+         <section class="main-sections">
+            <h2 class="title">Top Rated This Week</h2>
+            <div class="recipe-row">
+               <div class="recipe-cards">
+                  {% for recipe in recipes["top_rated"] %}
+                  {{ recipeCard(recipe) }}
+                  {% endfor %}
+               </div>
+            </div>
+         </section>
+         <section class="main-sections">
+            <h2 class="title">Recently Added</h2>
+            <div class="recipe-row">
+               <div class="recipe-cards">
+                  {% for recipe in recipes["recent"] %}
+                  {{ recipeCard(recipe) }}
+                  {% endfor %}
+               </div>
+            </div>
+         </section>
+      </div>
+      {% endblock content %}
+      <footer id="posted-footer">
+         <p>Joe-mama eats inc</p>
+      </footer>
+   </body>
+</html>

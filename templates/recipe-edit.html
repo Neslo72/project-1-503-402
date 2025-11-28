@@ -1,0 +1,177 @@
+{% extends "main.html" %}
+{% from "recipe-macros.html" import tagOptions, nutritionalLabel %}
+
+{% block title %}
+    Edit Recipe
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recipe-edit.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{{ url_for('static',filename='js/recipeEdit.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+
+    {% if edit is defined %}
+    <h1>Edit Recipe</h1>
+    {% else %}
+    <h1>New Recipe</h1>
+    {% endif %}
+
+    {% if request.args.get("status") %}
+        <span style="color:red">{{ request.args.get("status") }}</span><br><br>
+    {% endif %}
+
+    <form id="link-form" class="pure-form" method="GET" action="{{ url_for('recipeEdit') }}">
+        <div class="input-group pure-form-stacked">
+            {% if recipe.link is defined %}
+                <label>Autofill Recipe from Link<input id="recipe-link" type="url" name="recipe-link" class="pure-input-1" value="{{ recipe.link }}" readonly></label>
+                <button type="submit" name="link-type" value="CLEAR" class="pure-button-secondary">Clear Form</button>
+            {% else %}
+                <label>Recipe Link<input id="recipe-link" type="url" name="recipe-link" class="pure-input-1" required></label>
+                {% if recipe.linkstatus is defined %}
+                    <span class="pure-form-message-inline">{{recipe.linkstatus}}</span>
+                    <br>
+                {% endif %}
+                <button type="submit" name="link-type" value="FILL" class="pure-button-primary">Autofill Form</button>
+            {% endif %}
+        </div>
+    </form>
+
+    <br>
+
+    <form id="recipe-form" class="pure-form" method="POST" action="{{ url_for('recipeEdit') }}">
+        <div class="input-group">
+            <div class="pure-g">
+                <div class="pure-u-6-24 img-container">
+                    {% if recipe.image_url is defined %}
+                        <img id="img-container" class="img-container" src="{{recipe.image_url}}" alt="Recipe Image">
+                    {% else %}
+                        <img id="img-container" class="img-container" src="" alt="Recipe Image" style="display: none">
+                    {% endif %}
+                    <input type="file" id="imageFile" accept="image/*">
+                </div>
+                <div class="pure-u-1-24"></div>
+                <fieldset class="pure-u-16-24 pure-form-stacked">
+                    <legend>Basic Information</legend>
+                    <label>Title<input type="text" name="title" placeholder="Recipe Title*" class="pure-input-1" required value="{{ recipe.title | default('')}}"></label>
+                    <label>Servings<input type="number" id="servings" name="servings" min="0" value="{{ recipe.servings | default('') }}"></label>
+                    <label>Total Cook Time (minutes)<input type="number" name="cooktime" min="0" value="{{ recipe.cooktime | default('') }}"></label>
+                    <label>Calories (per serving)<input type="number" name="kcal" min="0" value="{{recipe.kcal | default('')}}"></label>
+                    <label>Brief Description<textarea name="brief" rows="4" cols="50" maxlength="250">{{ recipe.brief | default('')}}</textarea></label>
+                </fieldset>
+            </div>
+            <br>
+            <div id="tag-container" class="tag-container">
+                {% if recipe.tag is defined %}
+                    {{ tagOptions(recipe.tags) }}
+                {% else %}
+                    {{ tagOptions([]) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <br>
+
+        {# Ingreidents #}
+        <div class="input-group">
+            <fieldset>
+                <div class="pure-g">
+                    <div class="pure-u-1-1">
+                        <legend>Ingredients</legend>
+                        <input id="ing-input" type="text" class="pure-input-1">
+                        <button id="ing-add" type="button" class="pure-button-primary">Add ingredient</button>
+                    </div>
+                    <ul id="ingredient-zone" class="pure-u-16-24">
+                        Choose the best ingredient match from USDA data for more accurate nutritional prediciton<br>
+                        For the best results, use gram measurements and clear ingredient names
+                        {% for ing in recipe.ingredients %}
+                            <li class="step-list">
+                                <input type="text" readonly class="pure-input-2-3" value="{{ing}}">
+                                <button type="button" class="pure-button-secondary">Remove</button>
+                                {% if recipe.nutrients is defined and recipe.nutrients[loop.index] is defined %}
+                                <span class="pure-form-message">USDA Nutritional Match: 
+                                    <input type="number" step="0.01" class="USDA_grams" value="{{recipe.nutrients[loop.index].amount}}" readonly>
+                                    grams of 
+                                    <select class="USDA_base" readonly>
+                                        <option value="{{recipe.nutrients[loop.index].nutrients}}">
+                                            {{recipe.nutrients[loop.index].name}}
+                                        </option>
+                                    </select>
+                                </span>
+                                {% else %}
+                                <span class="pure-form-message">Calculating USDA ingredient match...</span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="pure-u-6-24 nutrition-container">
+                        {% if recipe.nutrients is defined and recipe.nutrients[0] is defined %}
+                        {{ nutritionalLabel(recipe.nutrients[0].total, recipe.servings) }}
+                        {% else %}
+                        {{ nutritionalLabel() }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                
+
+            </fieldset>
+        </div>
+
+        <br>
+
+        {# Steps #}
+        <div class="input-group">
+            <fieldset class="pure-form-stacked">
+                <legend>Steps</legend>
+                <label>Edit Step<textarea id="step-edit"></textarea></label>
+                <button id="step-add" type="button" class="pure-button-primary">Add</button>
+                <button id="step-clear" type="button" class="pure-button-secondary">Clear</button>
+            </fieldset>
+
+
+            <ol id="step-zone">
+                {% for step in recipe.steps %}
+                    <li class="step-list">
+                        <textarea>{{ step }}</textarea>
+                        <button type="button" class="pure-button-secondary">Remove</button>
+                    </li>
+                {% endfor %}
+                </ol>
+        </div>
+
+        <br>
+
+        <div class="input-group">
+            <fieldset class="pure-form-stacked">
+                <legend>Chef's Comments</legend>
+                    <textarea name="comment" rows="3" placeholder="Add any 'Cheffing' notes,  tips and tricks, or other info here!" maxlength="255">{{ recipe.comment }}</textarea>
+                </label>
+            </fieldset>
+        </div>
+
+        <div class="button-zone">
+            <button id="draft-button" type="submit" class="pure-button-primary">
+                {% if edit is defined %}Save changes as Draft
+                {% else %}Save post as Draft
+                {% endif %}
+            </button>
+            <button id="post-button" type="submit" class="pure-button-primary">
+                {% if edit is defined %}Save changes to post
+                {% else %}Make a new post
+                {% endif %}
+            </button>
+            <button id="clear-all" type="reset" class="pure-button-secondary">Cancel</button>
+            {% if edit is defined %}
+            <button id="delete-button" type="button" class="button-tertiary" value="{{recipe.recipeid}}">Delete</button>
+            {% endif %}
+        </div>
+
+    </form>
+
+{% endblock %}

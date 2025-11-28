@@ -1,0 +1,594 @@
+category,min,max
+Dairy and Egg Products,1.03,1.03
+Spices and Herbs,0.4,0.6
+Baby Foods,1.05,1.05
+Fats and Oils,0.91,0.93
+Poultry Products,1.05,1.1
+"Soups, Sauces, and Gravies",1.0,1.1
+Sausages and Luncheon Meats,1.0,1.05
+Breakfast Cereals,0.2,0.5
+Fruits and Fruit Juices,1.0,1.05
+Pork Products,1.02,1.06
+Vegetables and Vegetable Products,0.9,1.0
+Nut and Seed Products,0.6,0.8
+Beef Products,1.02,1.06
+Beverages,0.95,1.05
+Finfish and Shellfish Products,1.0,1.1
+Legumes and Legume Products,0.85,1.0
+"Lamb, Veal, and Game Products",1.02,1.06
+Baked Products,0.3,0.7
+Sweets,0.8,1.2
+Cereal Grains and Pasta,0.6,0.9
+Fast Foods,0.8,1.1
+"Meals, Entrees, and Side Dishes",0.9,1.1
+Snacks,0.3,0.6
+American Indian/Alaska Native Foods,0.8,1.0
+Restaurant Foods,0.9,1.1
+Branded Food Products Database,,
+Quality Control Materials,,
+Alcoholic Beverages,0.79,1.0
+"Milk, whole",1.032,1.032
+"Milk, reduced fat",1.033,1.033
+"Milk, lowfat",1.034,1.034
+"Milk, nonfat",1.035,1.035
+"Flavored milk, whole",1.035,1.035
+"Flavored milk, reduced fat",1.035,1.035
+"Flavored milk, lowfat",1.035,1.035
+"Flavored milk, nonfat",1.035,1.035
+Milk shakes and other dairy drinks,1.05,1.05
+Cheese,1.1,1.1
+Cottage/ricotta cheese,1.06,1.06
+"Yogurt, regular",1.03,1.03
+"Yogurt, Greek",1.06,1.06
+Plant-based milk,1.01,1.01
+Plant-based yogurt,1.04,1.04
+Ice cream and frozen dairy desserts,0.55,0.8
+Pudding,1.05,1.05
+"Gelatins, ices, sorbets",0.9,0.9
+Human milk,1.03,1.03
+"Beef, excludes ground",1.05,1.05
+Ground beef,0.95,0.95
+Pork,1.05,1.05
+"Lamb, goat, game",1.05,1.05
+Liver and organ meats,1.06,1.06
+"Chicken, whole pieces",1.05,1.05
+"Chicken patties, nuggets and tenders",1.0,1.0
+"Turkey, duck, other poultry",1.05,1.05
+Fish,1.03,1.03
+Shellfish,1.04,1.04
+Eggs and omelets,0.97,0.97
+Cold cuts and cured meats,1.05,1.05
+Bacon,0.9,0.9
+Frankfurters,1.0,1.0
+Sausages,1.05,1.05
+"Beans, peas, legumes",0.85,0.9
+Nuts and seeds,0.6,0.8
+Soy and meat-alternative products,0.95,1.05
+Meat mixed dishes,1.0,1.1
+Poultry mixed dishes,1.0,1.1
+Seafood mixed dishes,1.0,1.1
+"Bean, pea, legume dishes",0.9,1.0
+Vegetable dishes,0.9,1.0
+Rice mixed dishes,0.85,0.95
+"Pasta mixed dishes, excludes macaroni and cheese",0.85,0.95
+Macaroni and cheese,0.85,0.95
+Turnovers and other grain-based items,0.6,0.8
+Fried rice and lo/chow mein,0.85,0.95
+Stir-fry and soy-based sauce mixtures,0.85,0.95
+"Egg rolls, dumplings, sushi",0.9,1.0
+Burritos and tacos,0.9,1.0
+Nachos,0.9,1.0
+Other Mexican mixed dishes,0.9,1.0
+Pizza,0.9,0.9
+Burgers,0.85,1.0
+Frankfurter sandwiches,0.85,1.0
+Chicken fillet sandwiches,0.85,1.0
+Egg/breakfast sandwiches,0.85,1.0
+Cheese sandwiches,0.85,1.0
+Peanut butter and jelly sandwiches,0.85,1.0
+Seafood sandwiches,0.85,1.0
+Rice,0.85,0.85
+"Pasta, noodles, cooked grains",0.9,0.9
+Yeast breads,0.3,0.6
+Rolls and buns,0.3,0.6
+Bagels and English muffins,0.3,0.6
+Tortillas,0.5,0.5
+"Biscuits, muffins, quick breads",0.5,0.7
+"Pancakes, waffles, French toast",0.5,0.7
+"Ready-to-eat cereal, higher sugar (>21.2g/100g)",0.2,0.4
+"Ready-to-eat cereal, lower sugar (=<21.2g/100g)",0.3,0.5
+Oatmeal,0.9,0.9
+Grits and other cooked cereals,0.85,0.85
+Potato chips,0.25,0.35
+"Tortilla, corn, other chips",0.25,0.35
+Popcorn,0.1,0.2
+Pretzels/snack mix,0.3,0.5
+"Crackers, excludes saltines",0.4,0.6
+Saltine crackers,0.4,0.6
+Cereal bars,0.9,1.1
+Nutrition bars,0.9,1.1
+Cakes and pies,0.5,0.8
+Cookies and brownies,0.5,0.8
+"Doughnuts, sweet rolls, pastries",0.5,0.8
+Candy containing chocolate,1.2,1.2
+Candy not containing chocolate,1.0,1.0
+Sugars and honey,1.4,1.4
+Sugar substitutes,0.8,1.0
+"Jams, syrups, toppings",1.3,1.3
+Tomato-based condiments,1.0,1.1
+Soy-based condiments,1.0,1.1
+Mustard and other condiments,1.0,1.1
+"Olives, pickles, pickled vegetables",0.9,1.0
+"Pasta sauces, tomato-based",1.0,1.1
+"Dips, gravies, other sauces",1.0,1.1
+Apples,0.9,1.05
+Bananas,0.9,1.05
+Grapes,0.9,1.05
+Peaches and nectarines,0.9,1.05
+Strawberries,0.9,1.05
+Blueberries and other berries,0.9,1.05
+Citrus fruits,0.9,1.05
+Melons,0.9,1.05
+Dried fruits,1.2,1.4
+Other fruits and fruit salads,1.0,1.0
+Pears,0.9,1.05
+Pineapple,0.9,1.05
+Mango and papaya,0.9,1.05
+Tomatoes,0.9,1.0
+Carrots,0.9,1.0
+Other red and orange vegetables,0.9,1.0
+Broccoli,0.9,1.0
+Spinach,0.9,1.0
+Lettuce and lettuce salads,0.9,1.0
+Other dark green vegetables,0.9,1.0
+String beans,0.9,1.0
+Cabbage,0.9,1.0
+Onions,0.9,1.0
+Corn,0.9,1.0
+Other starchy vegetables,0.9,1.0
+Other vegetables and combinations,0.9,1.0
+Fried vegetables,0.8,0.9
+"Coleslaw, non-lettuce salads",0.85,0.95
+Vegetables on a sandwich,0.9,0.9
+Citrus juice,1.03,1.05
+Apple juice,1.03,1.05
+Other fruit juice,1.03,1.05
+Vegetable juice,1.03,1.05
+Diet soft drinks,1.0,1.0
+Diet sport and energy drinks,1.0,1.0
+Other diet drinks,1.0,1.0
+Soft drinks,1.0,1.0
+Fruit drinks,1.0,1.0
+Sport and energy drinks,1.0,1.0
+Nutritional beverages,1.05,1.1
+Smoothies and grain drinks,1.05,1.15
+Coffee,1.0,1.0
+Tea,1.0,1.0
+Beer,0.79,1.01
+Wine,0.79,1.01
+Liquor and cocktails,0.79,1.01
+Tap water,1.0,1.0
+Bottled water,1.0,1.0
+Flavored or carbonated water,1.0,1.0
+Enhanced water,1.0,1.0
+Butter and animal fats,0.91,0.93
+Margarine,0.91,0.93
+"Cream cheese, sour cream, whipped cream",0.95,1.0
+Cream and cream substitutes,0.95,0.95
+Mayonnaise,0.91,1.0
+Salad dressings and vegetable oils,0.91,0.93
+Baby food: cereals,1.0,1.1
+Baby food: fruit,1.0,1.1
+Baby food: vegetables,1.0,1.1
+Baby food: meat and dinners,1.0,1.1
+Baby food: yogurt,1.05,1.05
+Baby food: snacks and sweets,1.05,1.05
+Baby juice,1.0,1.0
+Baby water,1.0,1.0
+"Formula, ready-to-feed",1.03,1.03
+"Formula, prepared from powder",1.03,1.03
+Protein and nutritional powders,0.5,0.5
+Vegetable Based Products / Meals - Not Ready to Eat (Frozen),0.90,1.10
+Candy,1.30,1.60
+Grains/Cereal - Ready to Eat - (Shelf Stable),0.30,0.50
+"Tea - Bags, Loose Leaf, Speciality" ,0.20,0.40
+"Granulated, Brown & Powdered Sugar",0.70,0.90
+Deli Salads,0.90,1.10
+Nuts/Seeds – Prepared/Processed,0.50,0.70
+Chicken - Unprepared/Unprocessed,0.90,1.00
+Canned Condensed Soup,1.10,1.30
+Milk/Milk Substitutes,1.00,1.03
+Sauces,1.00,1.30
+Other Condiments,1.10,1.40
+Wrapped Snacks - Cereal,0.30,0.50
+Canned Tuna,1.00,1.10
+Flavored Snack Crackers,0.30,0.50
+Pastry,0.40,0.80
+"Oriental, Mexican & Ethnic Sauces",1.00,1.30
+Coffee/Coffee Substitutes,0.20,0.40
+Non Alcoholic Beverages  Ready to Drink,0.98,1.05
+Chewing Gum & Mints,1.20,1.50
+Dried Breads (Shelf Stable),0.20,0.30
+Pork - Prepared/Processed,1.10,1.30
+Snacks Other,0.30,0.70
+Canned Fish and Meat,1.00,1.20
+Rice,0.80,0.90
+Deli and Chilled Foods,0.90,1.10
+Spreads,1.00,1.30
+Infant Formula,0.60,0.70
+Frozen Meals,0.90,1.20
+Vegetables  Unprepared/Unprocessed (Shelf Stable),0.60,0.90
+Milk/Cream,0.99,1.04
+Grain Based Products / Meals - Not Ready to Eat - Savoury (Frozen),0.80,1.10
+Herbs & Spices,0.40,0.60
+"Frozen Poultry, Chicken & Turkey",0.90,1.10
+Baby/Infant – Foods/Beverages,1.00,1.20
+Snacks Variety Packs,0.30,0.70
+Canned & Bottled Beans,0.90,1.10
+Fresh Chicken - Whole,0.90,1.00
+"Pepperoni, Salami & Cold Cuts",0.90,1.10
+Fruit Juice - Not Ready to Drink (Frozen),1.30,1.40
+Health Supplements and Vitamins,0.40,0.80
+Fruits - Unprepared/Unprocessed (Frozen),0.50,0.90
+"Cakes, Cupcakes, Snack Cakes",0.30,0.60
+Frozen Pies/Savouries,0.70,1.00
+Sausages/Smallgoods,1.00,1.20
+Baking/Cooking Mixes/Supplies,0.40,0.70
+Shellfish Prepared/Processed,1.00,1.20
+Nuts/Seeds  Prepared/Processed,0.50,0.70
+Snack Foods - Multi Packs,0.30,0.70
+Frozen Bread & Dough,0.30,0.60
+Confectionery,1.20,1.50
+Dips - Shelf Stable,0.90,1.30
+Baking Additives & Extracts,0.80,1.00
+Flavored Rice Dishes,0.90,1.10
+Meat/Poultry/Other Animals – Unprepared/Unprocessed,0.90,1.10
+Yogurt (Perishable),0.90,1.20
+Cereal,0.25,0.40
+Frozen Dinners & Entrees,0.90,1.20
+Aquatic Invertebrates/Fish/Shellfish/Seafood Combination,1.00,1.20
+Meat/Poultry/Other Animals Sausages  Prepared/Processed,1.00,1.20
+Oils Edible - Vegetable or Plant (Shelf Stable),0.89,0.92
+"Breakfast Sandwiches, Biscuits & Meals",0.90,1.10
+Eggs Products/Substitutes,0.80,1.00
+Sugar And Flour,0.70,0.90
+Vegetarian Frozen Meats,0.90,1.10
+Pasta/Noodles - Not Ready to Eat (Frozen),0.80,1.00
+Drinks - Energy Drinks,0.98,1.05
+Chicken - Prepared/Processed,1.00,1.10
+Beef - Prepared/Processed,1.00,1.20
+Sushi,0.90,1.10
+S/O Fresh Fish Fillets/Steaks,0.90,1.10
+Baking,0.40,0.70
+Biscuits/Cookies (Frozen),0.30,0.60
+Tofu,0.90,1.10
+Sugars/Sugar Substitute Products,0.70,0.90
+Prepared Wraps and Burittos,0.90,1.10
+Eggs/Eggs Substitutes,0.80,1.00
+Pies/Pastries/Pizzas/Quiches - Savoury (Frozen),0.80,1.10
+Cakes/Slices/Biscuits,0.30,0.60
+Dairy/Egg Based Products / Meals,0.90,1.20
+Nuts/Seeds  Unprepared/Unprocessed (Shelf Stable),0.50,0.70
+Canned/Dried Veges,0.60,0.90
+Prepared Meals,0.90,1.20
+Syrups & Molasses,1.30,1.40
+Meat/Poultry/Other Animals - Unprepared/Unprocessed,0.90,1.10
+Fruits/Vegetables/Nuts/Seeds Variety Packs,0.60,1.00
+Non Alcoholic Beverages – Not Ready to Drink,0.98,1.05
+Ice Cream/Ice Novelties (Shelf Stable),0.80,1.00
+"Bacon, Sausages & Ribs",1.00,1.20
+Alcoholic Beverages,0.95,0.99
+Vegetables – Unprepared/Unprocessed (Frozen),0.60,0.90
+Eggs,0.80,1.00
+Pork - Unprepared/Unprocessed,0.90,1.10
+Ready-Made Combination Meals,0.90,1.20
+Ready-Made Combination Meals - Not Ready to Eat (Frozen),0.90,1.20
+Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Frozen),1.00,1.30
+Butter & Spread,0.90,1.10
+Lunch Snacks & Combinations,0.80,1.10
+Pickled Vegetables,0.90,1.10
+Shellfish Unprepared/Unprocessed,1.00,1.10
+Drinks,0.98,1.05
+Chickpeas,0.80,0.90
+Grain Based Products / Meals - Not Ready to Eat - Savoury (Shelf Stable),0.80,1.10
+Meat/Poultry/Other Animals  Unprepared/Unprocessed,0.90,1.10
+Salads,0.90,1.10
+Children's Natural Remedies,0.80,1.00
+Liquid Water Enhancer,1.00,1.30
+Other Frozen Meats,0.90,1.10
+Other Cooking Sauces,1.00,1.30
+Baking/Cooking Mixes (Shelf Stable),0.40,0.70
+Confection & Snacks,1.20,1.50
+Fish – Prepared/Processed,1.00,1.20
+Fruits  Unprepared/Unprocessed (Frozen),0.50,0.90
+Dairy Foods/Yoghurts,0.90,1.20
+Potato - Instant Meals,0.80,1.00
+Cream,0.99,1.04
+Vegetable Based Products / Meals,0.90,1.10
+Cream/Cream Substitutes,0.99,1.04
+Soda,0.98,1.05
+Vegetables - Prepared/Processed (Shelf Stable),0.80,1.00
+Ice-Cream/Block Single,0.80,1.00
+Doodles/ Puffs,0.20,0.40
+Chili & Stew,1.00,1.20
+Coffee/Tea/Substitutes,0.20,0.40
+Biscuits/Cookies (Shelf Stable),0.30,0.60
+Processed Cheese & Cheese Novelties,1.00,1.20
+Cereals Products - Ready to Eat (Shelf Stable),0.30,0.50
+Pizza Mixes & Other Dry Dinners,0.80,1.10
+Yogurt,0.90,1.20
+Bread/Bakery Products Variety Packs,0.30,0.60
+Frozen Meat,0.90,1.10
+Grains,0.70,0.90
+Nuts/Seeds – Unprepared/Unprocessed (Shelf Stable),0.50,0.70
+Baking/Cooking Mixes/Supplies Variety Packs,0.40,0.70
+Pasta Dinners,0.80,1.00
+Desserts (Shelf Stable),0.80,1.00
+"Condiments, Oils & Dressing",0.90,1.30
+Frozen Chicken - Processed,0.90,1.10
+Baking/Cooking Mixes (Frozen),0.40,0.70
+Other Pet Food,0.80,1.10
+Ice-Cream Take Home,0.80,1.00
+Baby/Infant  Foods/Beverages,1.00,1.20
+Salad Dressing & Mayonnaise,1.00,1.30
+Canned Vegetables,0.80,1.00
+Eggs & Egg Substitutes,0.80,1.00
+Salad Dressings,1.00,1.30
+Fish  Unprepared/Unprocessed,0.90,1.10
+Dough Based Products / Meals - Not Ready to Eat - Savoury (Frozen),0.80,1.10
+Tea Bags,0.20,0.40
+Pies/Pastries - Sweet (Frozen),0.70,1.00
+Cookies & Biscuits,0.30,0.60
+Drinks - Soft Drinks,0.98,1.05
+Other Snacks,0.30,0.70
+Honey,1.35,1.45
+Pre-Packaged Fruit & Vegetables,0.60,1.00
+Wholesome Snacks,0.30,0.70
+Dips/Hummus/Pate,0.90,1.30
+Desserts & Custard,0.80,1.00
+Biscuits Kids,0.30,0.60
+Baking/Cooking Mixes (Perishable),0.40,0.70
+Herbal Supplements,0.40,0.80
+Coffee,0.90,1.00
+Minerals,0.80,1.00
+Pastry Shells & Fillings,0.40,0.80
+Cakes - Sweet (Shelf Stable),0.30,0.60
+Frozen Prepared Sides,0.90,1.10
+Sports and Weight Management,0.80,1.00
+Prepared Subs & Sandwiches,0.90,1.10
+Nuts/Seeds - Prepared/Processed (Shelf Stable),0.50,0.70
+Drinks - Powdered,0.70,0.90
+Vegetarian,0.90,1.10
+Fruit/Nuts/Seeds Mixes - Prepared/Processed (Shelf Stable),0.60,0.90
+Cereal Products - Ready to Eat (Perishable),0.30,0.50
+Miscellanious,0.80,1.10
+Vegetables – Unprepared/Unprocessed (Shelf Stable),0.60,0.90
+Baking Accessories,0.40,0.70
+Bread - Incl. Buns And Rolls,0.20,0.50
+Non Alcoholic Beverages  Not Ready to Drink,0.98,1.05
+Digestive & Fiber Supplements,0.80,1.00
+Frozen Fish/Seafood,0.90,1.10
+"Fresh Meat, Poultry and Seafood",0.90,1.10
+Herbs And Spices,0.40,0.60
+Fish - Prepared/Processed,1.00,1.20
+Baking Decorations & Dessert Toppings,0.80,1.00
+Sweet Bakery Products,0.30,0.60
+Biscuits/Cookies,0.30,0.60
+"Fruit & Vegetable Juice, Nectars & Fruit Drinks",0.98,1.05
+Biscuits Plain/Sweet,0.30,0.60
+Fish – Unprepared/Unprocessed,0.90,1.10
+Crusts & Dough,0.30,0.60
+Dressings/Dips (Shelf Stable),0.90,1.30
+Gravy Mix,0.90,1.20
+Cheese - Speciality,1.00,1.20
+Herbs/Spices (Shelf Stable),0.40,0.60
+Other Grains & Seeds,0.70,0.90
+Fruit - Prepared/Processed (Frozen),0.60,0.90
+"Seasoning Mixes, Salts, Marinades & Tenderizers",0.90,1.30
+Frozen Desserts,0.80,1.00
+Baking Needs,0.40,0.70
+Breakfast Drinks,0.98,1.05
+Vegetables - Unprepared/Unprocessed (Frozen),0.60,0.90
+"Croissants, Sweet Rolls, Muffins & Other Pastries",0.30,0.60
+Plant Based Milk,0.98,1.05
+Puddings and desserts,0.80,1.00
+"Drinks - Juices, Drinks and Cordials",0.98,1.05
+Sweet Spreads,1.00,1.30
+Ham/Cold Meats,1.00,1.20
+Vinegars/Cooking Wines,1.00,1.10
+Cheese,1.00,1.20
+Tomatoes,0.80,1.00
+Seasonings/Preservatives/Extracts Variety Packs,0.80,1.10
+Taco Shells,0.20,0.40
+Frozen Patties and Burgers,0.90,1.10
+"Frozen Pancakes, Waffles, French Toast & Crepes",0.70,1.00
+Pastries/Pies/Pizzas,0.70,1.00
+Drinks Flavoured - Ready to Drink,0.98,1.05
+Fruit – Prepared/Processed,0.60,0.90
+Cheese - Block,1.00,1.20
+Sandwiches/Filled Rolls/Wraps (Frozen),0.90,1.10
+Turkey - Unprepared/Unprocessed,0.90,1.10
+Fruit - Prepared/Processed,0.60,0.90
+Meat/Poultry/Other Animals  Prepared/Processed,1.00,1.20
+Canned Meat,1.00,1.20
+Cakes - Sweet (Frozen),0.30,0.60
+Beer,0.95,0.99
+Non Alcoholic Beverages – Ready to Drink,0.98,1.05
+Cereal/Muesli Bars,0.30,0.50
+Skin Care Preparations,0.80,1.00
+Mexican Dinner Mixes,0.80,1.10
+Fish  Prepared/Processed,1.00,1.20
+Sauces- Cooking,1.00,1.30
+Bread & Muffin Mixes,0.40,0.70
+Specialty Formula Supplements,0.90,1.20
+Savoury Bakery Products,0.30,0.60
+Berries/Small Fruit,0.50,0.90
+Sugar Candy/Sugar Candy Substitutes Confectionery,1.30,1.60
+Desserts/Dessert Sauces/Toppings,0.80,1.00
+"Poultry, Chicken & Turkey",0.90,1.10
+"Chips, Pretzels & Snacks",0.30,0.60
+Oral Hygiene Products,0.80,1.00
+Ayurvedic Supplements,0.40,0.80
+Milk,1.00,1.03
+Childcare,0.80,1.00
+Fresh Chicken - Processed,0.90,1.10
+"Sausages, Hotdogs & Brats",1.00,1.20
+Sport Drinks,0.98,1.05
+Other Meats,0.90,1.10
+"Frozen Breakfast Sandwiches, Biscuits & Meals",0.90,1.10
+Breakfast Foods,0.80,1.10
+Pickles/Relishes/Chutneys/Olives,0.90,1.10
+Breads & Buns,0.20,0.50
+Meat/Poultry/Other Animals – Prepared/Processed,1.00,1.20
+Wrapped Snacks - Muesli Bars,0.30,0.50
+Antioxidant Supplements,0.40,0.80
+Fatty Acid Supplements,0.90,0.93
+Frozen Potato,0.80,1.00
+Nuts/Seeds - Prepared/Processed,0.50,0.70
+Home Decoration & Supplies,0.80,1.00
+Noodles,0.80,1.00
+Frozen Vegetables,0.60,0.90
+Butter/Butter Substitutes,0.90,1.10
+Green Supplements,0.40,0.80
+Pies/Pastries - Sweet (Shelf Stable),0.70,1.00
+Pizza,0.80,1.10
+Vegetables  Prepared/Processed,0.80,1.00
+Fruits - Unprepared/Unprocessed (Shelf Stable),0.60,0.90
+Extracts/Salt/Meat Tenderisers (Shelf Stable),0.90,1.30
+Grains/Cereal - Not Ready to Eat - (Shelf Stable),0.70,0.90
+Cooked & Prepared,0.90,1.20
+Desserts (Frozen),0.80,1.00
+Grains/Flour,0.70,0.90
+Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Shelf Stable),1.00,1.30
+Oils Edible,0.89,0.92
+Fresh Fruit and Vegetables,0.60,1.00
+Soups - Prepared (Shelf Stable),1.00,1.20
+Vegetables  Unprepared/Unprocessed (Frozen),0.60,0.90
+"Pickles, Relishes and Vinegar",0.90,1.10
+Biscuits Cracker,0.30,0.60
+Weight Control,0.80,1.00
+Margarine/Butter,0.90,1.10
+Fish Substitutes,0.90,1.10
+"Frozen Sausages, Hotdogs & Brats",1.00,1.20
+Snacks,0.30,0.70
+Vegetables - Unprepared/Unprocessed (Shelf Stable),0.60,0.90
+Non Alcoholic Beverages - Not Ready to Drink,0.98,1.05
+"Popcorn, Peanuts, Seeds & Related Snacks",0.30,0.70
+Snack Foods - Dried Fruit,0.50,0.90
+Bacon,1.00,1.20
+Frozen Fruit & Fruit Juice Concentrates,1.30,1.40
+"Energy, Protein & Muscle Recovery Drinks",0.98,1.05
+Fats Edible,0.89,0.92
+Stuffing,0.30,0.60
+Meat/Poultry/Other Animals Sausages - Prepared/Processed,1.00,1.20
+Pasta/Noodles,0.80,1.00
+Milk Additives,0.90,1.10
+Meat/Poultry/Other Animals Sausages – Prepared/Processed,1.00,1.20
+Packaged Water,1.00,1.00
+Smoked fish,1.00,1.10
+Vegetables,0.60,1.00
+Vegetables - Prepared/Processed,0.80,1.00
+Salami / Cured Meat,1.00,1.20
+Nutritional Supplements,0.80,1.00
+Other Soups,1.00,1.20
+Biscuits Chocolate,0.30,0.60
+Iced & Bottle Tea,0.98,1.05
+"Cake, Cookie & Cupcake Mixes",0.40,0.70
+Amino Acid Supplements,0.80,1.00
+Grain Based Products / Meals,0.80,1.10
+Chocolate,1.20,1.60
+Bread (Frozen),0.30,0.60
+Sauces/Spreads/Dips/Condiments,1.00,1.30
+Pork Sausages - Prepared/Processed,1.00,1.20
+Flours & Corn Meal,0.70,0.90
+Ice Cream & Frozen Yogurt,0.80,1.00
+Other Deli,0.90,1.10
+Herbs/Spices/Extracts,0.40,0.60
+Non Alcoholic Beverages - Ready to Drink,0.98,1.05
+Fish & Seafood,1.00,1.20
+Vitamins,0.80,1.00
+Other Drinks,0.98,1.05
+Alcohol,0.95,0.99
+Prepared/Preserved Foods Variety Packs,0.90,1.20
+"French Fries, Potatoes & Onion Rings",0.80,1.00
+Cheese/Cheese Substitutes,1.00,1.20
+Prepared Soups,1.00,1.20
+Canned Seafood,1.00,1.20
+Ice-Cream/Ice-Block Multi Pack,0.80,1.00
+Fresh Meat,0.90,1.10
+Health Care,0.80,1.00
+Yogurt/Yogurt Substitutes,0.90,1.20
+Fruits  Unprepared/Unprocessed (Shelf Stable),0.60,0.90
+Frozen Fish & Seafood,0.90,1.10
+"Coffee - Instant, Roast and Ground",0.90,1.00
+Vegetable Based Products / Meals - Not Ready to Eat (Shelf Stable),0.90,1.10
+Gardening,0.80,1.00
+Puddings & Custards,0.80,1.00
+Frozen Snack,0.30,0.70
+Popcorn (Shelf Stable),0.20,0.40
+Sauces - Cooking (Frozen),1.00,1.30
+Antipasto,0.90,1.10
+Canned Fruit,0.80,1.00
+Crackers & Biscotti,0.30,0.60
+"Fruits, Vegetables & Produce",0.60,1.00
+"Gelatin, Gels, Pectins & Desserts",0.80,1.00
+Vegetable & Cooking Oils,0.89,0.92
+Chips/Crisps/Snack Mixes - Natural/Extruded (Shelf Stable),0.30,0.60
+Turkey - Prepared/Processed,1.00,1.20
+Children's Nutritional Supplements,0.90,1.20
+Pasta by Shape & Type,0.80,1.00
+Milk/Cream - Shelf Stable,0.99,1.04
+Cereals Products - Not Ready to Eat (Shelf Stable),0.30,0.50
+Food/Beverage/Tobacco Variety Packs,0.80,1.10
+Vegetables - Prepared/Processed (Frozen),0.80,1.00
+"Pickles, Olives, Peppers & Relishes",0.90,1.10
+Cakes and Slices,0.30,0.60
+Nut & Seed Butters,0.90,1.10
+Meal Replacement Supplements,0.90,1.20
+Frozen Chicken - Portions,0.90,1.10
+Flour - Cereal/Pulse (Shelf Stable),0.70,0.90
+Nuts/Seeds - Prepared/Processed (Out of Shell),0.50,0.70
+Snack Foods - Chips,0.30,0.60
+Plant Based Water,1.00,1.00
+Wrapped Snacks - Fruit Bars,0.50,0.80
+Other Frozen Desserts,0.80,1.00
+Sauces - Cooking (Shelf Stable),1.00,1.30
+Meat/Poultry/Other Animals - Prepared/Processed,1.00,1.20
+Chocolate and Chocolate/Sugar Candy Combinations - Confectionery,1.30,1.60
+Kitchen Supplies,0.80,1.00
+Vitamins/Minerals/Nutritional Supplements,0.80,1.00
+Fruit Juice - Ready to Drink (Shelf Stable),0.98,1.05
+Wrapped Snacks - Nut Bars,0.50,0.80
+Sandwiches/Filled Rolls/Wraps,0.90,1.10
+Media,0.80,1.00
+Frozen Foods,0.80,1.10
+Frozen Appetizers & Hors D'oeuvres,0.90,1.10
+"Pancakes, Waffles, French Toast & Crepes",0.70,1.00
+Dough Based Products / Meals - Not Ready to Eat - Savoury (Shelf Stable),0.80,1.10
+Seafood Miscellaneous,1.00,1.20
+Fruit - Prepared/Processed (Shelf Stable),0.60,0.90
+Rice & Grains,0.70,0.90
+Fresh Pasta,0.80,1.00
+Water,1.00,1.00
+Snack Foods - Corn Chips,0.30,0.60
+Pasta,0.80,1.00
+Snack Foods - Nuts,0.50,0.80
+Dips & Salsa,0.90,1.30
+All Noodles,0.80,1.00
+Snack Foods - Cereal Snacks,0.30,0.60
+Peppers,0.60,0.90
+Dough Based Products / Meals,0.80,1.10
+Canned Soup,1.00,1.20
+Fruit/Nuts/Seeds Combination,0.60,0.90
+Pasta - Instant Meals,0.80,1.00
+Egg Based Products / Meals - Not Ready to Eat (Frozen),0.90,1.10
+Fruit,0.60,0.90
+Fruit  Prepared/Processed,0.60,0.90
+Frozen Fruit,1.30,1.40
+Beef Sausages - Prepared/Processed,1.00,1.20
+Prepared Pasta & Pizza Sauces,1.00,1.30
+Bread (Shelf Stable),0.30,0.60
+"Ketchup, Mustard, BBQ & Cheese Sauce",1.00,1.30
+Breakfast Cereals - Hot And Cold,0.30,0.50
+"Entrees, Sides & Small Meals",0.90,1.20
+Fresh Chicken - Portions,0.90,1.10

@@ -1,0 +1,160 @@
+{% extends "main.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock styles %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock scripts %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-box">
+    <div class="profile-left">
+      <div class="profile-upload">
+        <div class="upload-box" id="uploadBox">
+          <span class="plus-sign" id="plusSign">+</span>
+          <img id="profileImg" class="hidden" src="" alt="Profile Picture">
+          <input type="file" id="fileInput" accept="image/*" class="hidden">
+        </div>
+        <button id="changeImageBtn" class="hidden">Change Image</button>
+      </div>
+    </div>
+    <div class="profile-right">
+      <div class="form-fields hidden" id="editFields">
+        <input type="text" id="nameInput" placeholder="Enter your name" required minlength="4">
+        <span id="nameError" class="error-message" style="display: none; color: red; font-size: 0.9em; margin-top: -10px; margin-bottom: 10px;">You must enter at least 4 characters</span>
+        <textarea id="bioInput" placeholder="Tell us about yourself..." maxlength="255"></textarea>
+        <button id="saveBtn">Save Profile</button>
+      </div>
+      <div class="form-display" id="staticFields">
+        <h2 id="displayName">Loading...</h2>
+        <p id="displayBio">Loading your profile...</p>
+        <button id="editBtn">Edit Profile</button>
+        <a href="/logout" class="logout-btn">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-container">
+  <div class="tabs-header">
+    <button class="tab-btn active" data-tab="posts">Your Posts</button>
+    <button class="tab-btn" data-tab="saved">Saved</button>
+    <button class="tab-btn" data-tab="drafts">Drafts</button>
+  </div>
+
+  <div class="tabs-content">
+    <div class="tab-pane active" id="posts">
+      {% if user_posts %}
+      <h3>Your Posts</h3>
+      <div class="recipe-cards">
+        {% for recipe in user_posts %}
+        <article class="recipe-card" data-url="{{ url_for('recipe', id=recipe.recipeid) }}">
+          <div class="card-image">
+            <img src="/api/image?recipeID={{ recipe.recipeid }}" alt="{{ recipe.title }}">
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">{{ recipe.title }}</h3>
+            <p class="card-author">by You</p>
+
+            {% set avg = (recipe.avg_rating if recipe.avg_rating is not none else recipe.rating) %}
+            <div class="card-rating" aria-label="{{ (avg or 0)|float|round(1) }} out of 5">
+              {% if not avg or avg == 0 %}
+                No ratings yet
+              {% else %}
+                {{ (avg)|float|round(1) }} ★
+              {% endif %}
+            </div>
+
+            <p class="card-description">
+              {{ recipe.brief if recipe.brief else 'No description available.' }}
+            </p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>You have no current posts</p>
+      {% endif %}
+    </div>
+
+    <div class="tab-pane" id="saved">
+      {% if saved_recipes %}
+      <h3>Saved Recipes</h3>
+      <div class="recipe-cards">
+        {% for recipe in saved_recipes %}
+        <article class="recipe-card" data-url="{{ url_for('recipe', id=recipe.recipeid) }}">
+          <div class="card-image">
+            <img src="/api/image?recipeID={{ recipe.recipeid }}" alt="{{ recipe.title }}">
+          </div>
+
+          <div class="card-content">
+            <h3 class="card-title">{{ recipe.title }}</h3>
+
+            <div class="card-meta-row">
+              {% set avg = (recipe.avg_rating if recipe.avg_rating is not none else recipe.rating) %}
+              <div class="card-rating" aria-label="{{ (avg or 0)|float|round(1) }} out of 5">
+                {% if not avg or avg == 0 %}No ratings yet{% else %}{{ (avg)|float|round(1) }} ★{% endif %}
+              </div>
+
+              <button
+                class="save-chip is-saved"
+                type="button"
+                data-recipe-id="{{ recipe.recipeid }}"
+                data-saved="true"
+                aria-pressed="true">
+                <span class="icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </span>
+                <span class="label">Saved</span>
+              </button>
+            </div>
+
+            <p class="card-description">{{ recipe.brief }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>You don't have any saved posts</p>
+      {% endif %}
+    </div>
+
+
+    <div class="tab-pane" id="drafts">
+  {% if user_drafts %}
+  <h3>Draft Posts</h3>
+  <div class="recipe-cards">
+    {% for recipe in user_drafts %}
+    <article class="recipe-card" data-url="{{ url_for('recipeEdit', recipeID=recipe.recipeid) }}">
+      <div class="card-image">
+        <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+      </div>
+
+      <div class="card-content">
+            <h3 class="card-title">{{ recipe.title }}</h3>
+            <p class="card-author">by You</p>
+            <p class="card-description">
+              {{ recipe.brief if recipe.brief else 'No description available.' }}
+            </p>
+
+            <div class="card-actions">
+              <a href="/recipe/edit/{{ recipe.recipeid }}"
+                 class="edit-btn"
+                 onclick="event.stopPropagation()">✏️ Edit</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>You have no drafts</p>
+      {% endif %}
+</div>
+
+  </div>
+</div>
+{% endblock %}

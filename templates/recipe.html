@@ -1,0 +1,231 @@
+{% from "recipe-macros.html" import nutritionalLabel %}
+
+{% extends "main.html" %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recipe.css') }}">
+{% endblock styles %}
+{% block content %}
+<div class="recipe-page">
+   <header class="recipe-header">
+      <div class="recipe-header-main">
+         <h1 class="recipe-title">{{ recipe.title }}</h1>
+         <p class="recipe-author">{{ recipe.author }}</p>
+         <ul class="recipe-meta">
+            <li>🍽 {{ recipe.servings }} servings</li>
+            <li>⏱ {{ recipe.cooktime }}</li>
+            <li>{{ recipe.kcal }} kcal</li>
+         </ul>
+      </div>
+      <div class="recipe-header-actions" style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+         {% set owner_id = recipe.userid if recipe.userid is not none else recipe.userID %}
+         {% set is_owner = (session.get('userID')|int == (owner_id|int if owner_id is not none else -1)) %}
+         {% set is_admin = session.get('is_admin') %}
+         {% set can_edit = is_owner or is_admin %}
+         {% if can_edit %}
+         <div class="dropdown">
+            <button class="menu-toggle" type="button" aria-label="Recipe actions" aria-expanded="false">⋯</button>
+            <ul class="menu" hidden>
+               <li><a href="{{ url_for('recipeEdit', recipeID=recipe.recipeid) }}">✏️ Edit Recipe</a></li>
+               <li>
+                  <form method="POST"
+                     action="{{ url_for('delete_recipe', recipeID=recipe.recipeid) }}"
+                     onsubmit="return confirm('Delete this recipe? This cannot be undone.');">
+                     <button type="submit" class="delete-btn">🗑 Delete Recipe</button>
+                  </form>
+               </li>
+            </ul>
+         </div>
+         {% endif %}
+         <div id="ratingWidget"
+            class="rating-widget {{ 'locked' if user_rating }}"
+            data-recipe-id="{{ recipe.recipeid }}"
+            data-current="{{ user_rating or 0 }}"
+            data-locked="{{ 'true' if user_rating else 'false' }}"
+            aria-label="Rate this recipe">
+            <button class="star" type="button" data-value="1" aria-label="Rate 1 star">★</button>
+            <button class="star" type="button" data-value="2" aria-label="Rate 2 stars">★</button>
+            <button class="star" type="button" data-value="3" aria-label="Rate 3 stars">★</button>
+            <button class="star" type="button" data-value="4" aria-label="Rate 4 stars">★</button>
+            <button class="star" type="button" data-value="5" aria-label="Rate 5 stars">★</button>
+            <span class="rating-summary">
+            <span id="avgRating">{{ (recipe.avg_rating or 0)|int }}</span>/5 ·
+            <span id="ratingCount">{{ recipe.ratings or 0 }}</span> ratings
+            </span>
+         </div>
+         <button
+            id="saveBtn"
+            class="btn-save bookmark-btn {{ 'is-saved' if is_saved else '' }}"
+            type="button"
+            data-recipe-id="{{ recipe.recipeid }}"
+            data-saved="{{ 'true' if is_saved else 'false' }}"
+            aria-pressed="{{ 'true' if is_saved else 'false' }}"
+            aria-label="{{ 'Saved' if is_saved else 'Save' }}"
+            >
+            <span class="icon" aria-hidden="true">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+               </svg>
+            </span>
+            <span class="label">{{ 'Saved' if is_saved else 'Save' }}</span>
+         </button>
+      </div>
+   </header>
+   <div class="recipe-grid">
+      <div class="recipe-content">
+         <section class="recipe-media">
+            <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}" class="recipe-img">
+         </section>
+         <section id="ingredients" class="recipe-section">
+            <h2>Ingredients</h2>
+            <hr>
+            <ul class="bullets">
+               {% for ingredient in recipe.ingredients %}
+               <li>{{ ingredient }}</li>
+               {% endfor %}
+            </ul>
+         </section>
+         <section id="steps" class="recipe-section">
+            <h2>Steps</h2>
+            <hr>
+            <ol class="steps">
+               {% for step in recipe.steps %}
+               <li>{{ step }}</li>
+               {% endfor %}
+            </ol>
+         </section>
+         <section id="chef-comments" class="recipe-section">
+            <h2>Chef comments</h2>
+            <hr>
+            {% if recipe.comment %}
+            <p class="chef-notes">{{ recipe.comment }}</p>
+            {% else %}
+            <p class="muted">No chef comments for this recipe.</p>
+            {% endif %}
+         </section>
+         <hr class="recipe-divider recipe-divider--section">
+         <section id="comments" class="recipe-section">
+            <h2>Comments</h2>
+            <hr>
+            {% macro render_comment(c, children_map) -%}
+            <li class="comment-item" data-comment-id="{{ c.commentid }}">
+               <div class="comment-header">
+                  <div class="comment-meta">
+                     <strong class="comment-user">{{ c.username or ('User ' ~ c.userid) }}</strong>
+                     <span class="comment-time">
+                     {% if c.lastedit %}
+                     {{ c.lastedit.strftime('%m/%d/%Y %H:%M') }}
+                     {% endif %}
+                     </span>
+                  </div>
+                  {# three-dot menu for the comment owner (or admin) #}
+                  {% set can_manage_comment = (session.get('userID') and (session.get('userID')|int == (c.userid|int if c.userid is not none else -1))) or session.get('is_admin') %}
+                  {% if can_manage_comment %}
+                  <div class="dropdown">
+                     <button class="menu-toggle" type="button" aria-label="Comment actions" aria-expanded="false">⋯</button>
+                     <ul class="menu" hidden>
+                        <li>
+                           <button type="button"
+                              class="comment-edit"
+                              data-id="{{ c.commentid }}">✏️ Edit</button>
+                        </li>
+                        <li>
+                           <button type="button"
+                              class="comment-delete"
+                              data-id="{{ c.commentid }}">🗑 Delete</button>
+                        </li>
+                     </ul>
+                  </div>
+                  {% endif %}
+               </div>
+               <p class="comment-body">{{ c.content }}</p>
+               {% if session.get('user') or session.get('userID') %}
+               <button class="reply-btn btn-save" type="button" data-parent-id="{{ c.commentid }}">Reply</button>
+               {# inline edit form (hidden by default, JS toggles) #}
+               {% if can_manage_comment %}
+               <form class="edit-form comment-form" method="post" hidden
+                  action="{{ url_for('edit_comment_api', commentID=c.commentid) }}">
+                  <label for="edit-{{ c.commentid }}" class="sr-only">Edit comment</label>
+                  <textarea id="edit-{{ c.commentid }}" name="content" rows="2" required
+                     placeholder="Edit your comment..."></textarea>
+                  <div class="comment-actions">
+                     <button type="submit" class="btn-save">Save</button>
+                     <button type="button" class="btn-cancel btn-save">Cancel</button>
+                  </div>
+               </form>
+               {% endif %}
+               {# reply form #}
+               <form class="reply-form comment-form" method="post" hidden
+                  action="{{ url_for('add_recipe_comment', recipeID=recipe.recipeid) }}">
+                  <input type="hidden" name="parentID" value="{{ c.commentid }}">
+                  <label for="reply-{{ c.commentid }}" class="sr-only">Your reply</label>
+                  <textarea id="reply-{{ c.commentid }}" name="content" rows="2" required
+                     placeholder="Write a reply..."></textarea>
+                  <div class="comment-actions">
+                     <button type="submit" class="btn-save">Post Reply</button>
+                     <button type="button" class="btn-cancel btn-save">Cancel</button>
+                  </div>
+               </form>
+               {% endif %}
+               {% if comment_children.get(c.commentid) %}
+               <ul class="comment-list comment-children">
+                  {% for child in comment_children[c.commentid] %}
+                  {{ render_comment(child, comment_children) }}
+                  {% endfor %}
+               </ul>
+               {% endif %}
+            </li>
+            {%- endmacro %}
+            <div class="comments">
+               {% if comment_roots and comment_roots|length %}
+               <ul class="comment-list">
+                  {% for c in comment_roots %}
+                  {{ render_comment(c, comment_children) }}
+                  {% endfor %}
+               </ul>
+               {% else %}
+               <p class="muted" id="noCommentsMsg">No comments yet — be the first!</p>
+               {% endif %}
+            </div>
+            {% if session.get('user') or session.get('userID') %}
+            <form id="commentForm" class="comment-form" method="post"
+               action="{{ url_for('add_recipe_comment', recipeID=recipe.recipeid) }}">
+               <label for="commentContent" class="sr-only">Your comment</label>
+               <textarea id="commentContent" class="textarea-outline" name="content" rows="3" required
+                  placeholder="Share your thoughts..."></textarea>
+               <div class="comment-actions">
+                  <button type="submit" class="btn-save">Post Comment</button>
+                  <span class="comment-hint"></span>
+               </div>
+            </form>
+            {% else %}
+            <p class="muted">Please <a href="{{ url_for('login') }}">log in</a> to comment.</p>
+            {% endif %}
+         </section>
+      </div>
+      <aside class="recipe-outline recipe-outline--right">
+         <nav aria-label="On this page">
+            <h3 class="outline-title">Outline</h3>
+            <ul class="outline-list">
+               <li><a href="#ingredients">Ingredients</a></li>
+               <li><a href="#steps">Steps</a></li>
+               <li><a href="#chef-comments">Chef comments</a></li>
+               <li><a href="#comments">Comments</a></li>
+            </ul>
+            <br>
+            <div>
+               {% if recipe.nutrients[0] is defined %}
+                  {{ nutritionalLabel(recipe.nutrients[0].total, recipe.servings) }}
+               {% else %}
+                  {{ nutritionalLabel() }}
+               {% endif %}
+            </div>
+         </nav>
+      </aside>
+   </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/recipe.js') }}"></script>
+{% endblock scripts %}
