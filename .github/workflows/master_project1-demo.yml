@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: '3.12'
 
       # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
@@ -30,7 +30,7 @@ jobs:
         run: |
           python -m venv antenv
           source antenv/bin/activate
-          pip install pipenv && pipenv install
+          pip install -r requirements.txt
                 
       # By default, when you enable GitHub CI/CD integration through the Azure portal, the platform automatically sets the SCM_DO_BUILD_DURING_DEPLOYMENT application setting to true. This triggers the use of Oryx, a build engine that handles application compilation and dependency installation (e.g., pip install) directly on the platform during deployment. Hence, we exclude the antenv virtual environment directory from the deployment artifact to reduce the payload size. 
       - name: Upload artifact for deployment jobs
@@ -63,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_177CEA4ED4FA45839B2742CE15946277 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_293FE74C65144231BAB16BB6FB498DF2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1185426F0984479699EA00C507849A2E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9FF906A0BDD641198902E394D2CF5522 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A6D8A6B171CB4D4BA3074824BFEDEB3B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5C7958CBD8E849709D9020F2774B84D4 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
