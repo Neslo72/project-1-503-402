@@ -73,6 +73,6 @@ jobs:
         with:
           app-name: 'project1-demo'
           slot-name: 'Production'
-          startup-command: pipenv run gunicorn server:app
+          startup-command: ${{ env.STARTUP_COMMAND }}
 
           
