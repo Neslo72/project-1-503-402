@@ -32,7 +32,7 @@ CREATE TABLE Recipes (
     kcal INT,
     title VARCHAR(127),
     brief VARCHAR(255),
-    comments VARCHAR(255),
+    comment VARCHAR(255),
     link VARCHAR(255),
     lastEdit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     steps JSONB,        -- LIMIT SIZE ON FRONT END
