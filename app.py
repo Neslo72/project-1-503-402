@@ -20,7 +20,7 @@ import random
 
 load_dotenv(".env")
 app = Flask(__name__)
-app.secret_key = os.environ["APP_SECRET_KEY"]
+app.secret_key = os.environ.get("APP_SECRET_KEY")
 db.setup()
 
 
