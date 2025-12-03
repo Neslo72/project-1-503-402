@@ -1,9 +1,4 @@
 import os
-import nltk
-
-# setup and download NLTK data for Azure
-nltk.data.path.append(os.environ.get("NLTK_DATA", "nltk_data"))
-
 import csv
 import requests
 import concurrent.futures

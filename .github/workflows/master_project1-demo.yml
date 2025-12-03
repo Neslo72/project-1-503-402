@@ -32,22 +32,22 @@ jobs:
           pipenv requirements > requirements.txt
           pip install -r requirements.txt
 
-      # Cache NLTK data
-      - name: Cache NLTK data
-        uses: actions/cache@v4
-        with:
-          path: nltk_data
-          key: ${{ runner.os }}-nltk-${{ hashFiles('Pipfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-nltk-
+      # # Cache NLTK data
+      # - name: Cache NLTK data
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: nltk_data
+      #     key: ${{ runner.os }}-nltk-${{ hashFiles('Pipfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-nltk-
 
-      # 📥 Pre-download NLTK corpora if not cached
-      - name: Pre-download NLTK corpora
-        env:
-          NLTK_DATA: ${{ github.workspace }}/nltk_data
-        run: |
-          mkdir -p $NLTK_DATA
-          pipenv run python -m nltk.downloader -d $NLTK_DATA punkt stopwords wordnet
+      # # 📥 Pre-download NLTK corpora if not cached
+      # - name: Pre-download NLTK corpora
+      #   env:
+      #     NLTK_DATA: ${{ github.workspace }}/nltk_data
+      #   run: |
+      #     mkdir -p $NLTK_DATA
+      #     pipenv run python -m nltk.downloader -d $NLTK_DATA punkt stopwords wordnet
                 
       # # By default, when you enable GitHub CI/CD integration through the Azure portal, the platform automatically sets the SCM_DO_BUILD_DURING_DEPLOYMENT application setting to true. This triggers the use of Oryx, a build engine that handles application compilation and dependency installation (e.g., pip install) directly on the platform during deployment. Hence, we exclude the antenv virtual environment directory from the deployment artifact to reduce the payload size. 
       # - name: Upload artifact for deployment jobs
