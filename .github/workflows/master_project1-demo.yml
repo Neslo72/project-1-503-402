@@ -29,8 +29,7 @@ jobs:
       - name: Create and Start virtual environment and Install dependencies
         run: |
           pip install pipenv
-          pipenv requirements > requirements.txt
-          pip install -r requirements.txt
+          pipenv install
 
       # # Cache NLTK data
       # - name: Cache NLTK data
@@ -56,7 +55,7 @@ jobs:
           name: python-app
           path: |
             .
-            !pipenv
+            !pipenv/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
