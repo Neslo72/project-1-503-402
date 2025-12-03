@@ -102,10 +102,17 @@ jobs:
     - uses: actions/checkout@v1
     - name: Building web app
       uses: azure/appservice-build@v3
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CE5DBFAD898E42B185BFEDBE24C8870A }}
+        tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3090D84E6DF645E180DE3B8DB1400CCA }}
+        subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E7E50B2D268F4BA8A152D1C8AA34D24F }}
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
