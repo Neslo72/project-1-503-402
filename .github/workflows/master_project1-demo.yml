@@ -28,26 +28,9 @@ jobs:
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
       - name: Create and Start virtual environment and Install dependencies
         run: |
-          pip install pipenv
-          pipenv requirements > requirements.txt
+          python -m venv antenv
+          source antenv/bin/activate
           pip install -r requirements.txt
-
-      # # Cache NLTK data
-      # - name: Cache NLTK data
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: nltk_data
-      #     key: ${{ runner.os }}-nltk-${{ hashFiles('Pipfile.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-nltk-
-
-      # # 📥 Pre-download NLTK corpora if not cached
-      # - name: Pre-download NLTK corpora
-      #   env:
-      #     NLTK_DATA: ${{ github.workspace }}/nltk_data
-      #   run: |
-      #     mkdir -p $NLTK_DATA
-      #     pipenv run python -m nltk.downloader -d $NLTK_DATA punkt stopwords wordnet
                 
       # By default, when you enable GitHub CI/CD integration through the Azure portal, the platform automatically sets the SCM_DO_BUILD_DURING_DEPLOYMENT application setting to true. This triggers the use of Oryx, a build engine that handles application compilation and dependency installation (e.g., pip install) directly on the platform during deployment. Hence, we exclude the antenv virtual environment directory from the deployment artifact to reduce the payload size. 
       - name: Upload artifact for deployment jobs
@@ -56,7 +39,7 @@ jobs:
           name: python-app
           path: |
             .
-            !pipenv/
+            !antenv/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
@@ -80,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CB27F6EF05984483BBF089CC40003B98 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_616B810685A0490FA2A811C8B1FA491A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_24FD0A2BD80E4597AFB4516ED0DBFAF2 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CE5DBFAD898E42B185BFEDBE24C8870A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3090D84E6DF645E180DE3B8DB1400CCA }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E7E50B2D268F4BA8A152D1C8AA34D24F }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
